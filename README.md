@@ -1,5 +1,6 @@
 # Dictionary sorter
-once cloned to your computer, edit the file (with IDLE or other) to change the parameters.  
+This program takes a dictionary and outputs words that fit that criteria into a text file.  
+Once cloned to your computer, edit the file (with IDLE or other) to change these parameters.  
 _note: I use a lot of scrabble/words with friends references here because that is what this was initially for._
 
 __wrdLength:__  
