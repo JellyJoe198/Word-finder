@@ -1,41 +1,42 @@
+## dictionary sorter 0.6.3a
 
-wrdLength = 7 ## length of words to output
+wrdLength = 6 ## length of words to output
 addOne = 1 ## how much longer than wrdLength will it also allow?
-strictness = wrdLength #-1  ## how many correct letters required (same as wrdLength)
+strictness = wrdLength -1  ## how many correct letters required (same as wrdLength)
 ## NOTE: for each blank, change strictness by -1
 
 ##put lowercase version of all possible letters here
 #it is slightly more efficient if common letters are first.
-letters = ['e','d','b','g','r','u'] ## DEBUGgeR
+letters = ['s','k'] ## ZYGOTE (s) 
 ##guide:  [ 0   1   2   3   4   5   6   7   8   9  10  11  12  13
 
 ##if a letter is repeated, put its location in letters[] here (starts at 0)
-repeats = [0,3] ## (g,e)
+repeats = [] ## (none)
 
-## set a certain place to need a certain letter (0 to ignore)
+## set a certain place to need a certain letter (blank string to ignore)
 ## Note: do not put in letters[] if it is in here unless it can repeat
 ## put an array to check multiple options for that slot like ['e','a','s']
 required = {
-    0:  ['p','h'],
-    1:  ['p','h'],
-    2:  ['p','h'],
-    3:  ['p','h'],
-    4:  '0',
-    5:  '0',
-    6:  '0',
-    7:  '0',
-    8:  '0',
-    9:  '0',
-    10: '0',
-    11: '0',
-    12: '0',
-    13: '0' }
-required_necessary = False  # False if other letters can fill a required spot
-required_preffered = True   # BOTH False to disable `required` check
+    0:  '',
+    1:  'y',
+    2:  'g',
+    3:  'o',
+    4:  't',
+    5:  'e',
+    6:  '',
+    7:  '',
+    8:  '',
+    9:  '',
+    10: '',
+    11: '',
+    12: '',
+    13: '' }
+required_necessary = True  # False if other letters can fill a required spot
+required_preffered = False   # BOTH False to disable `required` check
 
 willPrint = True ##print the words that it finds to console?
-willScore = 0 ##will it find the score? (0=no, 1=print only, 2=print and write)
-fileType = 'csv' # the file extension of Output (recommended: txt or csv)
+willScore = 1 ##will it find the score? (0=no, 1=print only, 2=print and write)
+fileType = 'txt' # the file extension of Output (recommended: txt or csv)
 
 ## the base point value of each letter
 worthiness = {'a': 1, 'b': 4, 'c': 4, 'd': 2, 'e': 1, 'f': 4, 'g': 3,
@@ -79,7 +80,7 @@ else:
 
 if required_necessary:
     def requirement(q):
-        if required[q]=='0':
+        if required[q]=='':
             return True
         else:
             return False

@@ -4,6 +4,8 @@
 ### 0.6.3
 - you can now print the score to Output in csv format
 - the strictness will now be adjusted for the word length where relevant
+#### 0.6.3a
+- minor usability improvement
 
 ### 0.6.2
 - you can use required_necessary and required_preffered to make the program always use `required`, check `required` first then `letters` if not found, or not check `required` at all. 
