@@ -1,4 +1,5 @@
-## dictionary sorter 0.6.3a
+## dictionary sorter 0.6.4
+## GitHub repository: https://github.com/JellyJoe198/Word-sorter
 
 wrdLength = 6 ## length of words to output
 addOne = 1 ## how much longer than wrdLength will it also allow?
@@ -7,22 +8,22 @@ strictness = wrdLength -1  ## how many correct letters required (same as wrdLeng
 
 ##put lowercase version of all possible letters here
 #it is slightly more efficient if common letters are first.
-letters = ['s','k'] ## ZYGOTE (s) 
+letters = ['e','i','r','c'] ## EeIMRC_
 ##guide:  [ 0   1   2   3   4   5   6   7   8   9  10  11  12  13
 
 ##if a letter is repeated, put its location in letters[] here (starts at 0)
-repeats = [] ## (none)
+repeats = [0] ## (e)
 
 ## set a certain place to need a certain letter (blank string to ignore)
 ## Note: do not put in letters[] if it is in here unless it can repeat
 ## put an array to check multiple options for that slot like ['e','a','s']
 required = {
-    0:  '',
-    1:  'y',
-    2:  'g',
-    3:  'o',
-    4:  't',
-    5:  'e',
+    0:  'm',
+    1:  '',
+    2:  '',
+    3:  '',
+    4:  '',
+    5:  '',
     6:  '',
     7:  '',
     8:  '',
@@ -31,12 +32,14 @@ required = {
     11: '',
     12: '',
     13: '' }
-required_necessary = True  # False if other letters can fill a required spot
-required_preffered = False   # BOTH False to disable `required` check
+required_necessary = True   # False if other letters can fill a required spot
+required_preffered = False   # BOTH False to disable `required` check entirely
 
-willPrint = True ##print the words that it finds to console?
-willScore = 1 ##will it find the score? (0=no, 1=print only, 2=print and write)
+willPrint = True # print the words that it finds to console?
+willScore = 1 # will it find the score? (0=no, 1=print only, 2=print and write)
 fileType = 'txt' # the file extension of Output (recommended: txt or csv)
+
+startLog = True # put the settings used at the top of the Output?
 
 ## the base point value of each letter
 worthiness = {'a': 1, 'b': 4, 'c': 4, 'd': 2, 'e': 1, 'f': 4, 'g': 3,
@@ -65,25 +68,16 @@ print()
 if addOne:
     def checkLength(L):
         return(L >= wrdLength and L <= wrdLength+addOne)
-##        if(L >= wrdLength and L <= wrdLength+addOne):
-##            return True
-##        else:
-##            return False
 else:
     def checkLength(L):
         return L == wrdLength # this one takes less time when applicable
-##        if(L == wrdLength):
-##            return True
-##        else:
-##            return False
-
 
 if required_necessary:
     def requirement(q):
-        if required[q]=='':
-            return True
-        else:
-            return False
+        return required[q] == ''
+##            return True
+##        else:
+##            return False
     def checkRequired(q):
         try:
             for e in required[q]: # check required letters for that position
@@ -106,7 +100,6 @@ else:
         def checkRequired(q):
             return False
 
-
 if willPrint and willScore:
     def readout():
         print(k, score, sep='  —  ')  # show word and its score
@@ -121,11 +114,13 @@ if willScore==2:
     def writeAnswer():
         print(k, score, sep=',', file=ur) # write the word and score to ur in csv format
         readout() # print to console
+elif fileType== 'null':
+    def writeAnswer():
+        readout() # print to console only
 else:
     def writeAnswer():
         print(k, file=ur) # write the word to ur
         readout() # print to console
-
 
 if willScore:
     def doScore():
@@ -148,56 +143,52 @@ else:
         return False
 
 
-tf = "dictionaries/filteredCombinedDict4a.txt" ## input dictionary file
+tf = "dictionaries/words_alpha.txt" # input dictionary file
 f = open(tf)
+f.seek(0) # go to top of input file
 
-##go to top of input file
-f.seek(0)
-
-our = "Output.%s" %(fileType)
-with open(our, 'a') as ur:
+our = "Output.%s" %(fileType) # the output file
+with open(our,'a') as ur: # with output file open for writing/appending:
     ur.seek(0)
+    if startLog:
+        # put the settings at the beginning of the Output
+        print('wrdLength = ', wrdLength, '\naddOne = ', addOne, '\nstrictness = ', strictness, '\nletters = ', letters, '\nrepeats = ', repeats, '\nrequired = ', required, '\nrequired_necessary = ', required_necessary, '\nrequired_preffered = ', required_preffered, '\nwillPrint = ', willPrint, '\nwillScore = ', willScore, '\nfileType = ', fileType, '\nstartLog = ', startLog, '\ntf = ', tf, '\nour = ', our, sep='', file=ur)
 
     for i in f:
-        k = i.strip() ##prevent empty lines, k becomes 1 line from the dictionary
-
-        L = len(k) ##read length of line
+        k = i.strip() # prevent empty lines, k is a line from the dictionary
+        L = len(k) # read length of line
         if (checkLength(L)):
-            yes = 0 ##number of correct letters
-            score = 0 ##points it would earn
-            used = [] ## will be filled with letters that have been used
-            for q in range(0, L): ##check each character with each required letter
-                us = None
-                cha = k[q] ##cha is character to be checked
+            yes = 0 # number of correct letters
+            score = 0 # points it would earn based on worthiness
+            used = [] # to be filled with letters that have been used
+            for q in range(0, L): # check each character with each required letter
+                us = None # us will be the found letter?
+                cha = k[q] # cha is character to be checked
                 if(checkRequired(q)):
-                    yes = yes+1 ## add a match point
-                    score = doScore()  ##calculate score if scoring enabled
+                    yes = yes+1 # add a match point
+                    score = doScore()  # calculate score if scoring enabled
                 elif(requirement(q)):
-                    for a in range(0, len(letters)): ##a in letters array
+                    for a in range(0, len(letters)): # a in letters array
                         if (cha == letters[a]):
-                            yes = yes+1 ## add a match point
+                            yes = yes+1 # add a match point
                             score = doScore()
-                            us = a
-                            break ##once it finds a letter, stop searching
+                            us = a # record found letter
+                            break # once a letter is found, stop searching
 
-                if(us != None): ##checks if letter is allowed to repeat
+                if(us != None): # check if found letter is allowed to repeat
                     if not repeatable():
                         b = True
-                        for a in used: ## check if letter has been used
+                        for a in used: # check if letter has been used
                             if(a == us):
                                 b = False
                                 break
                         if b:
-                            used.append(us) ##record letter has been used
+                            used.append(us) # record letter has been used
                         else:
-                            yes = yes-1 ## remove the match point it it already used
+                            yes = yes-1 # revoke match point if letter already used
 
                 if (yes >= strictness + tempStrict()): ## if found enough matches, put it in output
-##                    with open(our, 'a') as ur:
-##                    ur.write(k + '\n')
-##                    print(k, file=ur) # this is the same as ur.write
                     writeAnswer() # print answer to Output and console
-##                    readout()
 
 f.close()
 print('\nfinished!')

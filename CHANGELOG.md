@@ -1,11 +1,15 @@
 
 # dictionary sorter change log
 
+### 0.6.4
+- setting fileType to `'null'` will disable outputting to a file (minor bug: will still create file but it is empty)
+- option to put the settings used at the top of each Output. This is foundation for the ability to import settings from a file.
+
 ### 0.6.3
 - you can now print the score to Output in csv format
 - the strictness will now be adjusted for the word length where relevant
 #### 0.6.3a
-- minor usability improvement
+- minor usability improvement: unused `required` is now just `''` an empty string
 
 ### 0.6.2
 - you can use required_necessary and required_preffered to make the program always use `required`, check `required` first then `letters` if not found, or not check `required` at all. 
@@ -13,7 +17,7 @@
 - score calculation can now be turned off
 
 ### 0.6.1
-- ability to make other letters not fill the specified letter's spot
+- ability to make other letters not fill the specified letter's spot (bug: this only partially works)
 - ability to make multiple certain letters able to fill the same required spot
 
 ### 0.6.0
