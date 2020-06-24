@@ -1,6 +1,9 @@
 
 # dictionary sorter change log
 
+### 0.6.5
+- dictionary sorter now uses an external file (currently settings.pyw) for the settings. This is so another program (not implemented yet) can change the settings file to communicate with it without changing it. I might find that there is a better way to do this later.
+
 ### 0.6.4
 - setting fileType to `'null'` will disable outputting to a file (minor bug: will still create file but it is empty)
 - option to put the settings used at the top of each Output. This is foundation for the ability to import settings from a file.
