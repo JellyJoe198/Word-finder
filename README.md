@@ -22,7 +22,7 @@ __required:__
 Use this like the letters already on the board, the number is the place in the word where the letter must go.  
 It skips the letters check so don't put these in `letters` _note: this might change as it is clumsy_  
 You can also use an array if multiple letters can go in that place. example: `['s','y','e']`
-Enter a `'0'` to ignore that slot.  
+Enter a blank string`''` to ignore that slot.  
 __required_necessary:__  
 True if other letters cannot fill the spots in `required`. False if stuff from `letters` can go in.  
 __required_preffered:__  
