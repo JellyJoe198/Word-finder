@@ -1,0 +1,14 @@
+wrdLength = 6
+addOne = 1
+strictness = 5
+letters = ['e', 'i', 'r', 'c']
+repeats = [0]
+required = {0: 'm', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '', 11: '', 12: '', 13: ''}
+required_necessary = True
+required_preffered = False
+willPrint = True
+willScore = 1
+fileType = 'txt'
+startLog = False
+#tf = 'dictionaries/words_alpha.txt'
+#our = 'Output.csv'
