@@ -40,4 +40,4 @@ The file extension that the output will be. ('csv' reccomended if you want score
 
 
 ## Dictionary generator
-The generator is based on a similar concept but it takes dictionaries and filters them based on certain criteria. I used it to generate the dictionary sorter uses. 
+The generator is based on a similar concept but it takes dictionaries and filters them based on certain criteria. I used it to generate the dictionary that the sorter uses. 
