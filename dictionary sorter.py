@@ -1,4 +1,4 @@
-## dictionary sorter 0.7.0
+## dictionary sorter 0.7.1
 ## GitHub repository: https://github.com/JellyJoe198/Word-sorter
 
 from settings import *
@@ -8,6 +8,14 @@ worthiness = {'a': 1, 'b': 4, 'c': 4, 'd': 2, 'e': 1, 'f': 4, 'g': 3,
               'h': 3, 'i': 1, 'j': 10, 'k': 5, 'l': 2, 'm': 4, 'n': 2,
               'o': 1, 'p': 4, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 2,
               'v': 5, 'w': 4, 'x': 8, 'y': 3, 'z': 10}
+
+# backwards compatability
+try:
+    x=leniency
+    del x
+except:
+    print("You are using a depricated version. Attempting to correct input...")
+    leniency = wrdLength - strictness
 
 ##prints a readout of what it is going to do
 if (addOne):
@@ -19,8 +27,7 @@ if willScore:
     print('Also gives score to each word.')
 print() # empty line
 
-##checklength will check if it is the right length, and changes based on addOne
-##so we don't have to check addOne all the time (time optimization)
+# checklength will check if the word is the right length
 if addOne:
     def checkLength(L):
         return(L >= wrdLength and L <= wrdLength+addOne)
@@ -85,12 +92,6 @@ else:
     def doScore():
         return False
 
-##def repeatable():
-##    for r in repeats: # check if letter is allowed to repeat
-##        if(us == r):
-##            return True
-##    return False
-
 if addOne:
     def tempStrict(): # adjust strictness for wrdLength and addOne
         return L-wrdLength
@@ -116,14 +117,12 @@ with open(our,'a') as ur: # with output file open for writing/appending:
               '\nfileType = ', "'%s'" %(fileType), '\nstartLog = ', startLog,
               '\n#tf = ', "'%s'" %(tf), '\n#our = ', "'%s'" %(our), sep='', file=ur)
 
-    for i in f:
+    for i in f: # for word in dictionary
         k = i.strip() # prevent empty lines, k is a line from the dictionary
         L = len(k) # read length of line
         if (checkLength(L)):
-##            print('reset tempLetters')
-##            print(letters)
-            global tempLetters
-            tempLetters = letters.copy() # once letters are found, it will remove it from the array.
+##            global tempLetters
+            tempLetters = letters.copy() # once letters are found, it will remove it from this array
             yes = 0
             score = 0
 ##            used = [] # to be filled with letters that have been used
@@ -138,8 +137,8 @@ with open(our,'a') as ur: # with output file open for writing/appending:
                         yes += 1
                         score = doScore()
                         tempLetters.remove(cha) # remove one of the letter in temp array
-            if (yes >= wrdLength - leniency + tempStrict()): ## if found enough matches, put it in output
-                writeAnswer() # print answer to Output and console
+            if (yes >= wrdLength - leniency + tempStrict()): # if found enough matches, put it in output
+                writeAnswer() # print answer to Output or console
 
 f.close()
 print('\nfinished!')
