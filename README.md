@@ -1,7 +1,7 @@
 # Dictionary sorter
 This program takes a dictionary and outputs words that fit that criteria into a text file.  
 Once cloned to your computer, edit the settings file (with IDLE or other) to change these parameters.  
-Or you can use version 0.6.4 and edit the settings directly. (this may be better for now because`settings.pyw`has no guides)
+Version 0.6.4 has different variables but it has comments in the code to help.
 
 __wrdLength:__  
 This is the length of the words to output.  
