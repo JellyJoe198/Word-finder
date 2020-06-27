@@ -1,6 +1,12 @@
 
 # dictionary sorter change log
 
+### 0.7.0
+- you can now input repeatable letters just by putting more than 1 of that letter in the `letters` array, and it will only repeat the amount of times you put in that letter.
+
+#### UI-text 0.1 - 0.6.5
+- this is a text based user interface to make a settings file for dictionary sorter version 0.6.5. It is probably still better to directly edit settings.pyw though.
+
 ### 0.6.5
 - dictionary sorter now uses an external file (currently settings.pyw) for the settings. This is so another program (not implemented yet) can change the settings file to communicate with it without changing it. I might find that there is a better way to do this later.
 
