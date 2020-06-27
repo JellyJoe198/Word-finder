@@ -7,20 +7,19 @@ __wrdLength:__
 This is the length of the words to output.  
 __addOne:__  
 This is the length more than wrdLength it will also output.  
-__strictness:__  
-The amount of correct letters required to output.  Should be `wrdLength` minus the amount of blank tiles.
+__leniency:__  
+How many incorrect letters are allowed?  
+strictness:  
+DEPRICATED: Should be wrdLength minus the amount of blank tiles. Replaced by leniency.
 
 __letters:__  
 Use this like your tile rack, it is the list of letters that are free to go anywhere.  
+Each letter will be used up to one time. To repeat, put a letter in multiple times.  
 It is good for common letters to be earlier but not required.  
-Only 1 of each letter should be entered, if there are repeats use `repeats` variable.  
-__repeats:__  
-Put the location of the letter(s) that can repeat here, starting at 0.
-In 0.6.4 there is a guide under the `letters` variable for convenience
 
 __required:__  
 Use this like the letters already on the board, the number is the place in the word where the letter must go.  
-It skips the letters check so don't put these in `letters` _note: this might change as it is clumsy_  
+It skips the letters check so don't put these in `letters` _**note: this might change as it is clumsy**_  
 You can also use an array if multiple letters can go in that place. example: `['s','y','e']`
 Enter a blank string`''` to ignore that slot.  
 __required_necessary:__  
