@@ -12,4 +12,4 @@ In the UI you would tell it the tiles that you have, and then have environments 
     - output style (including logs)
 
 ### possible methods
-Use an intermediate file to separate core from UI. This would allow many different versions of UI to seamlessly integrate without redoing the core, and edge cases are easier to diagnose bc sharing the file instead of UI screenshot. 
+Use an intermediate file to separate core from UI. This would allow many different versions of UI to seamlessly integrate without redoing the core, and edge cases are easier to diagnose bc sharing the file instead of UI screenshot. The intermediate file could even be a JSON file to make it compatible with more languages.
