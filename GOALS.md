@@ -8,8 +8,8 @@ In the UI you would tell it the tiles that you have, and then have environments 
 ### Requirements
 * keyboard accessability (mouse is not necessary; keyboarders are not second class citizens)
 * retain as much customizing as possible, including:
-- dictionary
-- output style (including logs)
+    - dictionary
+    - output style (including logs)
 
 ### possible methods
 Use an intermediate file to separate core from UI. This would allow many different versions of UI to seamlessly integrate without redoing the core, and edge cases are easier to diagnose bc sharing the file instead of UI screenshot. 
