@@ -10,7 +10,7 @@ User tells the UI the tiles he has, then tells it the place on the board to whic
 * retain as much customization as possible, including dictionary
 * complex board:
     - multi layered - you can apply filters to many different position, and it doesn't have to be the same filter everywhere. Possibly an automatic mode that would take the start of a word and return what can go there
-    - you can test multiple positions on the board at the same time, and the wouldn't affect eachother
+    - you can test multiple positions on the board at the same time, and they wouldn't affect eachother
 * awesomeness
 
 ### possible methods
