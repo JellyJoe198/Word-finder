@@ -100,7 +100,7 @@ else:
         return False
 
 
-tf = "dictionaries/filteredCombinedDict4a.txt" # input dictionary file
+tf = "dictionaries/filteredCombinedDict5.txt" # input dictionary file
 f = open(tf)
 f.seek(0) # go to top of input file
 

@@ -3,14 +3,19 @@ This program takes a dictionary and outputs words that fit that criteria into a 
 Once cloned to your computer, edit the settings file (with IDLE or other) to change these parameters.  
 Version 0.6.4 has different variables but it has comments in the code to help.
 
+### System Requirements
+- python 3 (3.7 is what I am using but others should work)
+
+## Variables  
+
 __wrdLength:__  
 This is the length of the words to output.  
 __addOne:__  
 This is the length more than wrdLength it will also output.  
 __leniency:__  
-How many incorrect letters are allowed?  
-strictness:  
-DEPRICATED: Should be wrdLength minus the amount of blank tiles. Replaced by leniency.
+How many incorrect letters are allowed? This is similar to blank tiles that can be any letter.  
+__strictness:__  
+DEPRICATED - Replaced by leniency. Should be wrdLength minus the amount of blank tiles.  
 
 __letters:__  
 Use this like your tile rack, it is the list of letters that are free to go anywhere.  
