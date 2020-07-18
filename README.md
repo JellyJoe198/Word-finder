@@ -6,7 +6,7 @@ Version 0.6.4 has different variables but it has comments in the code to help.
 ### System Requirements
 - python 3 (3.7 is what I am using but others should work)
 
-### Variables  
+## Variables  
 
 __wrdLength:__  
 This is the length of the words to output.  
