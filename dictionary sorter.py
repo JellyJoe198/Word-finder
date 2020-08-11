@@ -51,7 +51,7 @@ if required_necessary:
 else:
     def requirement(q):
         return True
-    if required_preffered:
+    if required_preferred:
         def checkRequired(q):
             try:
                 for e in required[q]: # check required letters for that position
@@ -100,24 +100,24 @@ else:
         return False
 
 
-tf = "dictionaries/filteredCombinedDict5.txt" # input dictionary file
-f = open(tf)
-f.seek(0) # go to top of input file
+dictFile = "dictionaries/filteredCombinedDict5.txt"
+dictOpen = open(dictFile)
+##dictOpen.seek(0) # go to top of input
 
-our = "Output.%s" %(fileType) # the output file
-with open(our,'a') as ur: # with output file open for writing/appending:
+outFile = "Output.%s" %(fileType) # the output file
+with open(outFile,'a') as ur: # with output file open for writing/appending:
     ur.seek(0)
-    if startLog:
-        # put the settings at the beginning of the Output
-        print('wrdLength = ', wrdLength, '\naddOne = ', addOne,
-              '\nstrictness = ', strictness, '\nletters = ', letters,
-              '\nrepeats = ', repeats, '\nrequired = ', required,
-              '\nrequired_necessary = ', required_necessary, '\nrequired_preffered = ',
-              required_preffered, '\nwillPrint = ', willPrint, '\nwillScore = ', willScore,
-              '\nfileType = ', "'%s'" %(fileType), '\nstartLog = ', startLog,
-              '\n#tf = ', "'%s'" %(tf), '\n#our = ', "'%s'" %(our), sep='', file=ur)
+##    if startLog:
+##        # put the settings at the beginning of the Output
+##        print('wrdLength = ', wrdLength, '\naddOne = ', addOne,
+##              '\nstrictness = ', strictness, '\nletters = ', letters,
+##              '\nrepeats = ', repeats, '\nrequired = ', required,
+##              '\nrequired_necessary = ', required_necessary, '\nrequired_preferred = ',
+##              required_preferred, '\nwillPrint = ', willPrint, '\nwillScore = ', willScore,
+##              '\nfileType = ', "'%s'" %(fileType), '\nstartLog = ', startLog,
+##              '\n#tf = ', "'%s'" %(tf), '\n#outFile = ', "'%s'" %(outFile), sep='', file=ur)
 
-    for i in f: # for word in dictionary
+    for i in dictOpen: # for word in dictionary
         k = i.strip() # prevent empty lines, k is a line from the dictionary
         L = len(k) # read length of line
         if (checkLength(L)):
@@ -140,5 +140,5 @@ with open(our,'a') as ur: # with output file open for writing/appending:
             if (yes >= wrdLength - leniency + tempStrict()): # if found enough matches, put it in output
                 writeAnswer() # print answer to Output or console
 
-f.close()
+dictOpen.close()
 print('\nfinished!')

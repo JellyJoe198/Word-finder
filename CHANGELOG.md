@@ -1,6 +1,10 @@
 
 # dictionary sorter change log
 
+#### 0.7.2
+- refactoring: reduce clutter
+  - undo 0.7.1 backwards compatability for strictness
+
 #### 0.7.1
 - backwards compatability: strictness converted to leniency
 

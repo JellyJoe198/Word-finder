@@ -1,6 +1,6 @@
 # Dictionary sorter
-This program takes a dictionary and outputs words that fit that criteria into a text file.  
-Once cloned to your computer, edit the settings file (with IDLE or other) to change these parameters.  
+This program takes a dictionary and outputs words that fit certain criteria into a text file.  
+Once cloned to your computer, edit `settings.py` (with IDLE or a plaintext editor) to change these parameters, then run `dictionary sorter.py` to sort them  
 Version 0.6.4 has different variables but it has comments in the code to help.
 
 ### System Requirements
@@ -14,13 +14,11 @@ __addOne:__
 This is the length more than wrdLength it will also output.  
 __leniency:__  
 How many incorrect letters are allowed? This is similar to blank tiles that can be any letter.  
-__strictness:__  
-DEPRICATED - Replaced by leniency. Should be wrdLength minus the amount of blank tiles.  
 
 __letters:__  
 Use this like your tile rack, it is the list of letters that are free to go anywhere.  
 Each letter will be used up to one time. To repeat, put a letter in multiple times.  
-It is good for common letters to be earlier but not required.  
+It is faster for common letters to be earlier but not required.  
 
 __required:__  
 Use this like the letters already on the board, the number is the place in the word where the letter must go.  
