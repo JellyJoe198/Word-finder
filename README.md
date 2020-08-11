@@ -4,7 +4,7 @@ Once cloned to your computer, edit `settings.py` (with IDLE or a plaintext edito
 Version 0.6.4 has different variables but it has comments in the code to help.
 
 ### System Requirements
-- python 3 (3.7 is what I am using but others should work)
+- python 3.7
 
 ## Variables  
 
