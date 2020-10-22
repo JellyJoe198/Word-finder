@@ -1,4 +1,4 @@
-wrdLength = 5
+wrdLength = 6
 addOne = 1
 
 leniency = 0

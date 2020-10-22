@@ -1,7 +1,41 @@
 ## dictionary sorter 0.7.1
 ## GitHub repository: https://github.com/JellyJoe198/Word-sorter
 
-from settings import *
+##from settings import *
+##take user input and return the correct boolean
+def checkYN(res, compensate=0):
+    if compensate:
+        res = input(res + " (y/n)")
+    if res in ['y', 'y', 'yes', 'Yes']:
+        #print("True y")
+        return True
+    try:
+        if int(res): #if res is not number this will raise error
+            return True
+    except:
+        return False
+    return False
+
+
+##def checkFiles():#temp. repeat to test each case
+## check that necessary files exist
+try:
+    from settings import *
+    #raise  #temp. only for testing the fail procedure
+except:
+    print("Settings file is missing. Attempting to continue.")
+    try:
+        from baseSettings import *
+    except:
+        print("neither settings file exists. "
+              "unexpected behavior may occur.")
+        if not checkYN("continue?", 1):
+            print("\nprogram aborted by user.\n")
+            raise #end program via error
+        else:
+            print("\nprogram would continue.\n")
+
+
 
 ## the base point value of each letter
 worthiness = {'a': 1, 'b': 4, 'c': 4, 'd': 2, 'e': 1, 'f': 4, 'g': 3,
