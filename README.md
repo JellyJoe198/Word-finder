@@ -1,6 +1,6 @@
 # Dictionary sorter
-This program takes a dictionary and outputs words that fit that criteria into a text file.  
-Once cloned to your computer, edit the settings file (with IDLE or other) to change these parameters.  
+This program takes a dictionary and a word list then outputs matching words into a text file. Useful for scrabble.  
+Once cloned to your computer, edit the settings file (with IDLE or other txt editor) to change these parameters.  
 Version 0.6.4 has different variables but it has comments in the code to help.
 
 ### System Requirements
@@ -18,9 +18,9 @@ __strictness:__
 DEPRICATED - Replaced by leniency. Should be wrdLength minus the amount of blank tiles.  
 
 __letters:__  
-Use this like your tile rack, it is the list of letters that are free to go anywhere.  
+Use this like your tile rack, it is the list of letters free to go anywhere.  
 Each letter will be used up to one time. To repeat, put a letter in multiple times.  
-It is good for common letters to be earlier but not required.  
+It is more efficient for common letters to be earlier but not required.  
 
 __required:__  
 Use this like the letters already on the board, the number is the place in the word where the letter must go.  
@@ -41,10 +41,10 @@ If 1 the program will print score to console but not Output
 If 2 the program will print score to both console and Output  
 __fileType:__  
 The file extension that the output will be. ('csv' reccomended if you want scores, otherwise use 'txt')  
-make it 'null' or 'pyw' to not output words (it will still output the settings if startLog is True)
+make it 'null' or 'pyw' to not output words (it will still output the settings if `startLog` is True)
 
 __startLog:__  
 True to print the settings used on that run at the start of each Output file
 
 ## Dictionary generator
-The generator is based on a similar concept but it takes dictionaries and filters them based on certain criteria. I used it to generate the dictionary that the sorter uses. 
+The generator is based on a similar concept as the finder, but it takes dictionaries and filters them based on different criteria. I used it to generate the dictionary that the sorter uses. 
