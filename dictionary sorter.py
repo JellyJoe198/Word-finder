@@ -27,6 +27,9 @@ if willScore:
     print('Also gives score to each word.')
 print() # empty line
 
+###############################################
+## Self-modifying functions to honor settings
+###############################################
 # checklength will check if the word is the right length
 if addOne:
     def checkLength(L):
@@ -104,11 +107,14 @@ tf = "dictionaries/filteredCombinedDict5.txt" # input dictionary file
 f = open(tf)
 f.seek(0) # go to top of input file
 
+###############################################
+## main
+###############################################
 our = "Output.%s" %(fileType) # the output file
 with open(our,'a') as ur: # with output file open for writing/appending:
     ur.seek(0)
     if startLog:
-        # put the settings at the beginning of the Output
+        # put the settings at the beginning of the Output (this could also be a self modifying function for conciseness but it does not affect speed)
         print('wrdLength = ', wrdLength, '\naddOne = ', addOne,
               '\nstrictness = ', strictness, '\nletters = ', letters,
               '\nrepeats = ', repeats, '\nrequired = ', required,
@@ -118,16 +124,14 @@ with open(our,'a') as ur: # with output file open for writing/appending:
               '\n#tf = ', "'%s'" %(tf), '\n#our = ', "'%s'" %(our), sep='', file=ur)
 
     for i in f: # for word in dictionary
-        k = i.strip() # prevent empty lines, k is a line from the dictionary
+        k = i.strip() # prevent empty lines, k is this line from the dictionary
         L = len(k) # read length of line
         if (checkLength(L)):
-##            global tempLetters
-            tempLetters = letters.copy() # once letters are found, it will remove it from this array
+##            global variables for this word
+            tempLetters = letters.copy() # once letters are found, they will be removed from this array
             yes = 0
             score = 0
-##            used = [] # to be filled with letters that have been used
             for q in range(0, L): # check each character with each required letter
-##                us = None # us will be the found letter?
                 cha = k[q] # cha is character to be checked
                 if(checkRequired(q)):
                     yes += 1 # add a match point
