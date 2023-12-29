@@ -3,8 +3,10 @@ This program takes a dictionary and a word list then outputs matching words into
 Once cloned to your computer, edit the settings file (with IDLE or other txt editor) to change these parameters.  
 Version 0.6.4 has different variables but it has comments in the code to help.
 
+This is not designed to be efficient yet. It simply scans through each letter(L) in the dictionary(n) and letters(k) in O(n\*L\*k) time.
+
 ### System Requirements
-- python 3 (3.7 is what I am using but others should work)
+- python 3 (tested in 3.7 but others should work)
 
 ## Variables  
 
